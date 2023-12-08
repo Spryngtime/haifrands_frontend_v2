@@ -37,3 +37,7 @@ next-env.d.ts
 
 # contentlayer
 .contentlayer
+.idea/haifrands-landing-page.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml

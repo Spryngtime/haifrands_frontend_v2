@@ -1,0 +1,4 @@
+.horizontal-container {
+    display: flex;
+    align-items: center; /* This aligns the items vertically in the center, if needed */
+}
