@@ -13,10 +13,10 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Features />
-      <FeaturesBlocks />
-      <Testimonials />
-      <Newsletter />
+      {/*<Features />*/}
+      {/*<FeaturesBlocks />*/}
+      {/*<Testimonials />*/}
+      {/*<Newsletter />*/}
     </>
   )
 }

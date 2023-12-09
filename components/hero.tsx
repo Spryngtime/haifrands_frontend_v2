@@ -1,5 +1,7 @@
 import VideoThumb from '@/public/images/hero-image.png'
 import ModalVideo from '@/components/modal-video'
+import Image from "next/image";
+import HeroImage from "@/public/images/hero_image.png";
 
 export default function Hero() {
   return (
@@ -22,22 +24,17 @@ export default function Hero() {
         </svg>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 hero-image">
 
         {/* Hero content */}
-        <div className="pt-32 pb-12 md:pt-40 md:pb-20">
+        <div className="pt-32 pb-12 md:pt-40 md:pb-20 hero-image">
+
+          <Image className="md:max-w-none transform hero-image"  src={HeroImage} width={500} height="44" alt="Element"  />
 
           {/* Section header */}
-          <div className="text-center pb-12 md:pb-16">
+          <div className="text-center pb-12 md:pb-16 hero-image">
             {/* Hero image */}
-            <ModalVideo
-                thumb={VideoThumb}
-                thumbWidth={512}
-                thumbHeight={512}
-                thumbAlt="Modal video thumbnail"
-                video="/videos/video.mp4"
-                videoWidth={1920}
-                videoHeight={1080} />
+
             <h1 className="text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4" data-aos="zoom-y-out">Create <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">reimagined</span> photos of friends with AI</h1>
             <div className="max-w-3xl mx-auto">
               <p className="text-xl text-gray-600 mb-8" data-aos="zoom-y-out" data-aos-delay="150">Upload your photos and watch "Bob as Shrek" or "Bob with a mullet" come to life.</p>

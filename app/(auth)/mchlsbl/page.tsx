@@ -20,7 +20,7 @@ export default function Mchlsbl() {
         setIsLoading(true);
         setImageUrl('blah')
         // Replace with your API endpoint
-        const response = await fetch('https://haifrands-backend.onrender.com/sample', {
+        const response = await fetch('https://haifrands-backend.onrender.com/mchlsbl', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
