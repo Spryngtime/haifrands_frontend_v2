@@ -12,6 +12,7 @@
     "@ebay/nice-modal-react": "^1.2.13",
     "@headlessui/react": "^1.7.17",
     "@stytch/nextjs": "^14.0.0",
+    "@stytch/vanilla-js": "^3.2.5",
     "@types/node": "^20.10.4",
     "@types/react": "^18.2.42",
     "@types/react-dom": "^18.2.17",
