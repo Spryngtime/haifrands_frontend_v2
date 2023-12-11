@@ -48,7 +48,7 @@ const SendOTPForm = (props: Props): JSX.Element => {
     return (
         <div>
             <h2>Enter phone number</h2>
-            <p>{description == null ? ("Join now! The first 1000 people on the waitlist get free access") : (description)}</p>
+            <p>{description == null ? ("The first 1000 people on the waitlist get free access") : (description)}</p>
             <form onSubmit={onSubmit}>
                 <div style={styles.telInput}>
                     <input style={styles.flag} name="intlCode" type="text" value="+1" readOnly />

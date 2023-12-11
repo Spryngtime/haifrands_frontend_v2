@@ -7,6 +7,7 @@ import SendOTPForm from "@/components/ui/SendOTPForm";
 import VerifyOTPForm from "@/components/ui/VerifyOTPForm";
 import {StytchProvider} from "@stytch/nextjs";
 import {createStytchUIClient} from "@stytch/nextjs/ui";
+import {saveNewuser} from "@/components/utils/backendAPIHelper"
 
 const stytch = createStytchUIClient("public-token-test-4991da25-43df-44b0-806a-6cdbdf711d5c");
 
@@ -15,6 +16,10 @@ const stytch = createStytchUIClient("public-token-test-4991da25-43df-44b0-806a-6
 export default NiceModal.create(({ user }) => {
     const modal = useModal();
     const [form] = Form.useForm();
+    const [title, setTitle] = useState('')
+    const [successfullyLoggedIn, setSuccessfullyLoggedIn] = useState(false)
+    const [successDescription, setSuccessDescription] = useState('')
+
     const [otpSent, setOTPSent] = useState(false);
     const [phoneNumber, setPhoneNumber] = useState('');
     const [methodId, setMethodId] = useState('');
@@ -25,6 +30,24 @@ export default NiceModal.create(({ user }) => {
             { key: 'name', label: 'Name', required: true },
             { key: 'job', label: 'Job Title', required: true },
         ],
+    };
+
+    const closeOnSuccess = () => {
+        saveNewuser()
+        let secondsToGo = 5;
+        console.log("Success!")
+        setSuccessfullyLoggedIn(true);
+        setTitle("Success!")
+
+        const timer = setInterval(() => {
+            secondsToGo -= 1;
+            setSuccessDescription(`Success! You'll be redirected in ${secondsToGo} seconds.`)
+        }, 1000);
+
+        setTimeout(() => {
+            clearInterval(timer);
+            modal.hide();
+        }, secondsToGo * 1000);
     };
 
     const handleSubmit = useCallback(() => {
@@ -43,7 +66,7 @@ export default NiceModal.create(({ user }) => {
     return (
         <Modal
             {...antdModal(modal)}
-            title={'Join waitlist'}
+            title={successDescription}
             // okText={user ? 'Update' : 'Create'}
             onOk={handleSubmit}
             footer={null}
@@ -58,7 +81,7 @@ export default NiceModal.create(({ user }) => {
                         description={null}
                     />
                 ) : (
-                    <VerifyOTPForm methodId={methodId} phoneNumber={phoneNumber} closeOnSuccess={null}/>
+                    <VerifyOTPForm methodId={methodId} phoneNumber={phoneNumber} closeOnSuccess={closeOnSuccess}/>
                 )}
             </StytchProvider>
         </Modal>

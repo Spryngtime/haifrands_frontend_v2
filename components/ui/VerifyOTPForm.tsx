@@ -100,7 +100,8 @@ const VerifyOTPForm = (props: Props) => {
                 if (closeOnSuccess){
                     closeOnSuccess();
                 }
-            } catch {
+            } catch (e) {
+                console.log(e)
                 setIsError(true);
                 resetPasscode();
             }
