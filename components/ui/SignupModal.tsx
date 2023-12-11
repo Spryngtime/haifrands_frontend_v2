@@ -19,12 +19,33 @@ export default NiceModal.create(({ user }) => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [methodId, setMethodId] = useState('');
 
+    const [title, setTitle] = useState('')
+    const [successfullyLoggedIn, setSuccessfullyLoggedIn] = useState(false)
+    const [successDescription, setSuccessDescription] = useState('')
+
     const meta = {
         initialValues: user,
         fields: [
             { key: 'name', label: 'Name', required: true },
             { key: 'job', label: 'Job Title', required: true },
         ],
+    };
+
+    const closeOnSuccess = () => {
+        let secondsToGo = 5;
+        console.log("Success!")
+        setSuccessfullyLoggedIn(true);
+       setTitle("Success!")
+
+        const timer = setInterval(() => {
+            secondsToGo -= 1;
+            setSuccessDescription(`Success! You'll be redirected in ${secondsToGo} seconds.`)
+        }, 1000);
+
+        setTimeout(() => {
+            clearInterval(timer);
+            modal.hide();
+        }, secondsToGo * 1000);
     };
 
     const handleSubmit = useCallback(() => {
@@ -40,26 +61,30 @@ export default NiceModal.create(({ user }) => {
             modal.hide();
         });
     }, [modal, user, form]);
+
     return (
         <Modal
             {...antdModal(modal)}
-            title={'Join waitlist'}
-            // okText={user ? 'Update' : 'Create'}
+            title={successDescription}
+            // okText={successfullyLoggedIn ? successDescription : ''}
             onOk={handleSubmit}
             footer={null}
         >
             <StytchProvider stytch={stytch}>
-                {!otpSent ? (
-                    <SendOTPForm
-                        phoneNumber={phoneNumber}
-                        setMethodId={setMethodId}
-                        setOTPSent={setOTPSent}
-                        setPhoneNumber={setPhoneNumber}
-                        description={"Sign up and start generating images!"}
-                    />
-                ) : (
-                    <VerifyOTPForm methodId={methodId} phoneNumber={phoneNumber}/>
-                )}
+                {successfullyLoggedIn ? (<p></p>) :
+                    (!otpSent ? (
+                        <SendOTPForm
+                            phoneNumber={phoneNumber}
+                            setMethodId={setMethodId}
+                            setOTPSent={setOTPSent}
+                            setPhoneNumber={setPhoneNumber}
+                            description={"Sign up and start generating images!"}
+                        />
+                    ) : (
+                        <VerifyOTPForm methodId={methodId} phoneNumber={phoneNumber} closeOnSuccess={closeOnSuccess}/>
+                    ))
+                }
+                {}
             </StytchProvider>
         </Modal>
     );

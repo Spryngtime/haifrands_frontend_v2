@@ -1,5 +1,6 @@
 import React from 'react';
 import { useStytch } from '@stytch/nextjs';
+import { Form, Modal } from 'antd';
 
 // Handles auto-tabbing to next passcode digit input.
 // Logic inspired from https://stackoverflow.com/questions/15595652/focus-next-input-once-reaching-maxlength-value.
@@ -30,10 +31,11 @@ const autoTab = (target: HTMLInputElement, key?: string) => {
 type Props = {
     methodId: string;
     phoneNumber: string;
+    closeOnSuccess: Function | null;
 };
 
 const VerifyOTPForm = (props: Props) => {
-    const { methodId, phoneNumber } = props;
+    const { methodId, phoneNumber, closeOnSuccess } = props;
     const [isDisabled, setIsDisabled] = React.useState(true);
     const [currentMethodId, setCurrentMethodId] = React.useState(methodId);
     const [isError, setIsError] = React.useState(false);
@@ -95,6 +97,9 @@ const VerifyOTPForm = (props: Props) => {
                 let success = await stytchClient.otps.authenticate(otpInput, methodId, { session_duration_minutes: 525000 });
                 console.log("SUCCESS!")
                 console.log(success)
+                if (closeOnSuccess){
+                    closeOnSuccess();
+                }
             } catch {
                 setIsError(true);
                 resetPasscode();
