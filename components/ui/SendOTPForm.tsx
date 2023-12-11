@@ -6,11 +6,13 @@ type Props = {
     setMethodId: (methodId: string) => void;
     setOTPSent: (submitted: boolean) => void;
     setPhoneNumber: (phoneNumber: string) => void;
+
+    description: string | null;
 };
 
 const SendOTPForm = (props: Props): JSX.Element => {
     const stytchClient = useStytch();
-    const { phoneNumber, setMethodId, setOTPSent, setPhoneNumber } = props;
+    const { phoneNumber, setMethodId, setOTPSent, setPhoneNumber, description } = props;
     const [isDisabled, setIsDisabled] = React.useState(true);
 
 // The useStytchUser hook will return the existing Stytch User object if one exists
@@ -46,7 +48,7 @@ const SendOTPForm = (props: Props): JSX.Element => {
     return (
         <div>
             <h2>Enter phone number</h2>
-            <p>Enter your phone number to receive a passcode for authentication.</p>
+            <p>{description == null ? ("Join now! The first 1000 people on the waitlist get free access") : (description)}</p>
             <form onSubmit={onSubmit}>
                 <div style={styles.telInput}>
                     <input style={styles.flag} name="intlCode" type="text" value="+1" readOnly />
@@ -59,7 +61,7 @@ const SendOTPForm = (props: Props): JSX.Element => {
                     />
                 </div>
                 <p style={styles.smsDisclaimer}>
-                    By continuing, you consent to receive an SMS for verification. Message and data rates may apply.
+                    By continuing, you consent to receive an SMS for verification. You also consent to get updates, like waitlist updates or image generations. Message and data rates may apply.
                 </p>
                 <button className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0 full-width" disabled={isDisabled} id="button" type="submit">
                     Continue

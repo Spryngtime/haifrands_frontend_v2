@@ -2,39 +2,56 @@
 
 
 import Link from 'next/link'
-import {useState} from "react";
+import {useCallback, useState} from "react";
+import {useStytchUser} from "@stytch/nextjs";
+import {useModal} from "@ebay/nice-modal-react";
+import UserInfoModal from "@/components/ui/SignupModal";
 
 export default function Mchlsbl() {
     const [prompt, setPrompt] = useState('');
     const [imageUrl, setImageUrl] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [imageUrl2, setImageUrl2] = useState('');
-
+    const { user, isInitialized } = useStytchUser();
+    const userModal = useModal(UserInfoModal);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setPrompt(event.target.value);
     };
 
+    const handleNewUser = useCallback(() => {
+        console.log("handleNewUser")
+        userModal.show().then((newUser) => {
+            console.log("handleNewUser2")
+        });
+    }, [userModal]);
 
     const fetchImage = async () => {
+        if (!isInitialized || !user) {
+            console.log("Need to login")
+            handleNewUser()
+            return
+        }
         setIsLoading(true);
         setImageUrl('blah')
         // Replace with your API endpoint
-        const response = await fetch('https://haifrands-backend.onrender.com/mchlsbl', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ "inputs":prompt }),
-        });
-        console.log("Got response")
-        console.log(response)
-        const data = await response.json();
-        console.log(data)
-        console.log(data[0])
-        console.log(data[1])
-        setImageUrl(data[0]);
-        setImageUrl2(data[1]);
+        // const response = await fetch('https://haifrands-backend.onrender.com/mchlsbl', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify({ "inputs":prompt }),
+        // });
+        // console.log("Got response")
+        // console.log(response)
+        // const data = await response.json();
+        // console.log(data)
+        // console.log(data[0])
+        // console.log(data[1])
+        // setImageUrl(data[0]);
+        // setImageUrl2(data[1]);
+        setImageUrl("https://i.imgur.com/xBPA2Vi.jpeg")
+        setImageUrl2("https://i.imgur.com/xBPA2Vi.jpeg")
         // setImageUrl(data.imageUrl);
         setIsLoading(false);
     };

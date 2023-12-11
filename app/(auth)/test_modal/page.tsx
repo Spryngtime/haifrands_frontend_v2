@@ -5,7 +5,7 @@ import { Button, Table } from 'antd';
 import { EditOutlined } from '@ant-design/icons';
 import { useModal } from '@ebay/nice-modal-react';
 import NiceModal from '@ebay/nice-modal-react';
-import UserInfoModal from './UserInfoModal';
+import UserInfoModal from '../../../components/ui/WaitlistModal';
 import { StytchProvider } from "@stytch/nextjs";
 
 import {useStytch, useStytchUser} from "@stytch/nextjs";
@@ -46,8 +46,6 @@ export default function UserList() {
         console.log("handleNewUser")
         userModal.show().then((newUser) => {
             console.log("handleNewUser2")
-            // @ts-ignore
-            setUsers([newUser, ...users]);
         });
     }, [userModal, users]);
 

@@ -1,8 +1,8 @@
 'use client'
 
 import React, {useState} from 'react';
-import SendOTPForm from './SendOTPForm';
-import VerifyOTPForm from './VerifyOTPForm';
+import SendOTPForm from '../../../components/ui/SendOTPForm';
+import VerifyOTPForm from '../../../components/ui/VerifyOTPForm';
 import {StytchProvider} from "@stytch/nextjs";
 import {createStytchUIClient} from "@stytch/nextjs/ui";
 

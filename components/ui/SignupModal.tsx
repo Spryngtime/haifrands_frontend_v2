@@ -3,8 +3,8 @@
 import React, {useCallback, useState} from 'react';
 import { Form, Modal } from 'antd';
 import NiceModal, { useModal, antdModal } from '@ebay/nice-modal-react';
-import SendOTPForm from "@/app/(auth)/sms_test/SendOTPForm";
-import VerifyOTPForm from "@/app/(auth)/sms_test/VerifyOTPForm";
+import SendOTPForm from "@/components/ui/SendOTPForm";
+import VerifyOTPForm from "@/components/ui/VerifyOTPForm";
 import {StytchProvider} from "@stytch/nextjs";
 import {createStytchUIClient} from "@stytch/nextjs/ui";
 
@@ -43,9 +43,10 @@ export default NiceModal.create(({ user }) => {
     return (
         <Modal
             {...antdModal(modal)}
-            title={user ? 'Edit User' : 'New User'}
-            okText={user ? 'Update' : 'Create'}
+            title={'Join waitlist'}
+            // okText={user ? 'Update' : 'Create'}
             onOk={handleSubmit}
+            footer={null}
         >
             <StytchProvider stytch={stytch}>
                 {!otpSent ? (
@@ -54,6 +55,7 @@ export default NiceModal.create(({ user }) => {
                         setMethodId={setMethodId}
                         setOTPSent={setOTPSent}
                         setPhoneNumber={setPhoneNumber}
+                        description={"Sign up and start generating images!"}
                     />
                 ) : (
                     <VerifyOTPForm methodId={methodId} phoneNumber={phoneNumber}/>

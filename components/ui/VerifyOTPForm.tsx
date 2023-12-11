@@ -133,10 +133,10 @@ const VerifyOTPForm = (props: Props) => {
             <form onSubmit={onSubmit}>
                 <p style={styles.error}>{isError ? 'Invalid code. Please try again.' : ''}</p>
                 <div style={styles.passcodeInputContainer}>{renderPasscodeInputs()}</div>
-                <button className="full-width" disabled={isDisabled} id="button" type="submit">
+                <button className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0 full-width" id="button" type="submit">
                     Continue
                 </button>
-                <button className="full-width no-fill mt2" onClick={resendCode} type="button">
+                <button className="btn text-white bg-gray-300 hover:bg-gray-800 w-full sm:w-auto sm:ml-4" onClick={resendCode} type="button">
                     Resend code
                 </button>
             </form>
