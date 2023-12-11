@@ -92,7 +92,7 @@ const VerifyOTPForm = (props: Props) => {
             }
 
             try {
-                let success = await stytchClient.otps.authenticate(otpInput, methodId, { session_duration_minutes: 60 * 24 });
+                let success = await stytchClient.otps.authenticate(otpInput, methodId, { session_duration_minutes: 525000 });
                 console.log("SUCCESS!")
                 console.log(success)
             } catch {

@@ -1,5 +1,5 @@
-import React from 'react';
-import { useStytch } from '@stytch/nextjs';
+import React, {useEffect} from 'react';
+import {useStytch, useStytchUser} from '@stytch/nextjs';
 
 type Props = {
     phoneNumber: string;
@@ -12,6 +12,9 @@ const SendOTPForm = (props: Props): JSX.Element => {
     const stytchClient = useStytch();
     const { phoneNumber, setMethodId, setOTPSent, setPhoneNumber } = props;
     const [isDisabled, setIsDisabled] = React.useState(true);
+
+// The useStytchUser hook will return the existing Stytch User object if one exists
+    const { user } = useStytchUser()
 
     const isValidNumber = (phoneNumberValue: string) => {
         // Regex validates phone numbers in (xxx)xxx-xxxx, xxx-xxx-xxxx, xxxxxxxxxx, and xxx.xxx.xxxx format
