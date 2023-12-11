@@ -27,7 +27,7 @@ const LoginWithSMS = () => {
                                 description={null}
                             />
                         ) : (
-                            <VerifyOTPForm methodId={methodId} phoneNumber={phoneNumber}/>
+                            <VerifyOTPForm methodId={methodId} phoneNumber={phoneNumber} closeOnSuccess={null}/>
                         )}
                     </StytchProvider>
                 </div>

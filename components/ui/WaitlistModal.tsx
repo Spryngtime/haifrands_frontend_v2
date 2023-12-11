@@ -58,7 +58,7 @@ export default NiceModal.create(({ user }) => {
                         description={null}
                     />
                 ) : (
-                    <VerifyOTPForm methodId={methodId} phoneNumber={phoneNumber}/>
+                    <VerifyOTPForm methodId={methodId} phoneNumber={phoneNumber} closeOnSuccess={null}/>
                 )}
             </StytchProvider>
         </Modal>
