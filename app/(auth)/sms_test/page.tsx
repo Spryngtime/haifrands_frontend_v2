@@ -24,6 +24,7 @@ const LoginWithSMS = () => {
                                 setMethodId={setMethodId}
                                 setOTPSent={setOTPSent}
                                 setPhoneNumber={setPhoneNumber}
+                                description={null}
                             />
                         ) : (
                             <VerifyOTPForm methodId={methodId} phoneNumber={phoneNumber}/>
