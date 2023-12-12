@@ -2,11 +2,13 @@
 
 
 import Link from 'next/link'
+import { getCookie, setCookie } from 'typescript-cookie'
 import {useCallback, useState} from "react";
 import {useStytchUser} from "@stytch/nextjs";
 import {useModal} from "@ebay/nice-modal-react";
 import UserInfoModal from "@/components/ui/SignupModal";
-import {generateImage} from "@/components/utils/backendAPIHelper";
+import {generateFreeImage, generateImage} from "@/components/utils/backendAPIHelper";
+import {getCookie, setCookie} from "typescript-cookie";
 
 export default function Mchlsbl() {
     const [prompt, setPrompt] = useState('');
@@ -28,14 +30,22 @@ export default function Mchlsbl() {
     }, [userModal]);
 
     const fetchImage = async () => {
-        if (!isInitialized || !user) {
-            console.log("Need to login")
-            handleNewUser()
-            return
+        if (getCookie("session_phortal") && (!isInitialized || !user)) {
+            handleNewUser();
+            return;
         }
+        setCookie("session_phortal", "1", {
+            domain: ".usephortal.com",
+        })
         setIsLoading(true);
         // setImageUrl('blah')
-        const response = await generateImage(prompt)
+        let response = null;
+        if (!isInitialized || !user) {
+            response = await generateFreeImage(prompt)
+        } else {
+            response = await generateImage(prompt)
+        }
+
         const data = await response.json();
         console.log(data)
         console.log(data[0])

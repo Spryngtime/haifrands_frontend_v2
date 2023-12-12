@@ -34,7 +34,7 @@ export default function Mchlsbl() {
             return;
         }
         setCookie("session_phortal", "1", {
-            domain: "localhost",
+            domain: ".usephortal.com",
         })
         setIsLoading(true);
         // setImageUrl('blah')
