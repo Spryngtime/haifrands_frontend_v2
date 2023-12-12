@@ -2,7 +2,14 @@
 import {StytchProvider} from "@stytch/nextjs";
 import {createStytchUIClient} from "@stytch/nextjs/ui";
 
-const stytch = createStytchUIClient(process.env.NEXT_PUBLIC_STYTCH_PUBLIC || "");
+const stytchOptions = {
+    cookieOptions: {
+        availableToSubdomains: true,
+        domain: ".usephortal.com",
+    }}
+
+const stytch = createStytchUIClient(process.env.NEXT_PUBLIC_STYTCH_PUBLIC || "", stytchOptions);
+
 import NiceModal from '@ebay/nice-modal-react';
 
 

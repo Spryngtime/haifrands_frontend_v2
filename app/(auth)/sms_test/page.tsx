@@ -6,7 +6,13 @@ import VerifyOTPForm from '../../../components/ui/VerifyOTPForm';
 import {StytchProvider} from "@stytch/nextjs";
 import {createStytchUIClient} from "@stytch/nextjs/ui";
 
-const stytch = createStytchUIClient(process.env.NEXT_PUBLIC_STYTCH_PUBLIC_TOKEN || '');
+const stytchOptions = {
+    cookieOptions: {
+        availableToSubdomains: true,
+        domain: ".usephortal.com",
+    }}
+
+const stytch = createStytchUIClient(process.env.NEXT_PUBLIC_STYTCH_PUBLIC || "", stytchOptions);
 
 const LoginWithSMS = () => {
     const [otpSent, setOTPSent] = useState(false);

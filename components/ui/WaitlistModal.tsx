@@ -9,7 +9,13 @@ import {StytchProvider} from "@stytch/nextjs";
 import {createStytchUIClient} from "@stytch/nextjs/ui";
 import {saveNewuser} from "@/components/utils/backendAPIHelper"
 
-const stytch = createStytchUIClient(process.env.NEXT_PUBLIC_STYTCH_PUBLIC || "");
+const stytchOptions = {
+    cookieOptions: {
+        availableToSubdomains: true,
+        domain: ".usephortal.com",
+    }}
+
+const stytch = createStytchUIClient(process.env.NEXT_PUBLIC_STYTCH_PUBLIC || "", stytchOptions);
 
 
 // @ts-ignore
