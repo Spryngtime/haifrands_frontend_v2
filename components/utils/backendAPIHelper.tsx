@@ -1,5 +1,5 @@
 let URL_PREFIX = "http://localhost:4000"
-if(process.env.NEXT_PRODUCTION == "prod") {
+if(process.env.NEXT_PUBLIC_PRODUCTION == "prod") {
     URL_PREFIX = "https://haifrands-backend.onrender.com"
 }
 

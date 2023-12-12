@@ -2,7 +2,7 @@
 import {StytchProvider} from "@stytch/nextjs";
 import {createStytchUIClient} from "@stytch/nextjs/ui";
 
-const stytch = createStytchUIClient("public-token-test-4991da25-43df-44b0-806a-6cdbdf711d5c");
+const stytch = createStytchUIClient(process.env.NEXT_PUBLIC_STYTCH_PUBLIC || "");
 import NiceModal from '@ebay/nice-modal-react';
 
 
