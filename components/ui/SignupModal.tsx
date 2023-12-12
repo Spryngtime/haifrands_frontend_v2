@@ -12,6 +12,7 @@ import {saveNewuser} from "@/components/utils/backendAPIHelper"
 const stytchOptions = {
     cookieOptions: {
         availableToSubdomains: true,
+        domain: ".usephortal.com",
     }
 }
 const stytch = createStytchUIClient(process.env.NEXT_PUBLIC_STYTCH_PUBLIC || "", stytchOptions);
