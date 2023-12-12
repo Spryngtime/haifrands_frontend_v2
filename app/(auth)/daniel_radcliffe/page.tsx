@@ -10,9 +10,9 @@ import {generateImage} from "@/components/utils/backendAPIHelper";
 
 export default function Mchlsbl() {
     const [prompt, setPrompt] = useState('');
-    const [imageUrl, setImageUrl] = useState('https://i.imgur.com/cubstjn.png');
+    const [imageUrl, setImageUrl] = useState('https://i.imgur.com/iDyi0XY.png');
     const [isLoading, setIsLoading] = useState(false);
-    const [imageUrl2, setImageUrl2] = useState('https://i.imgur.com/KxTY5Cq.png');
+    const [imageUrl2, setImageUrl2] = useState('https://i.imgur.com/n2WpMce.png');
     const { user, isInitialized } = useStytchUser();
     const userModal = useModal(UserInfoModal);
 
