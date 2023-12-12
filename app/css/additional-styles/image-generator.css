@@ -8,3 +8,7 @@
     margin-right: auto;
     align-items: center; /* This aligns the items vertically in the center, if needed */
 }
+
+.top-text {
+    padding-top: 1.5rem;
+}
