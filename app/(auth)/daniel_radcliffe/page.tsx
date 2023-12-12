@@ -2,7 +2,6 @@
 
 
 import Link from 'next/link'
-import { getCookie, setCookie } from 'typescript-cookie'
 import {useCallback, useState} from "react";
 import {useStytchUser} from "@stytch/nextjs";
 import {useModal} from "@ebay/nice-modal-react";
