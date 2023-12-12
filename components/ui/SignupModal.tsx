@@ -86,7 +86,7 @@ export default NiceModal.create(({ user }) => {
                             setMethodId={setMethodId}
                             setOTPSent={setOTPSent}
                             setPhoneNumber={setPhoneNumber}
-                            description={"Sign up and start generating images!"}
+                            description={"Sign up to continue generating images!"}
                         />
                     ) : (
                         <VerifyOTPForm methodId={methodId} phoneNumber={phoneNumber} closeOnSuccess={closeOnSuccess}/>
