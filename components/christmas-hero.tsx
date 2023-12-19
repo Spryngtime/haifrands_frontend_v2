@@ -59,7 +59,7 @@ export default function ChristmasHero() {
                                 with AI</h1>
                             <div className="max-w-3xl mx-auto">
                                 <p className="text-xl text-gray-600 mb-8" data-aos="zoom-y-out"
-                                   data-aos-delay="150">Upload your photos and we'll generate a photo of you wearing your best ugly Christmas sweater!</p>
+                                   data-aos-delay="150">Upload your photos and we'll generate a photos of you wearing your best ugly Christmas sweater - for free!</p>
                                 <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center"
                                      data-aos="zoom-y-out" data-aos-delay="300">
                                     <div>
