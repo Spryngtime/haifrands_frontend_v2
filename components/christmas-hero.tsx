@@ -2,14 +2,14 @@
 import VideoThumb from '@/public/images/hero-image.png'
 import ModalVideo from '@/components/modal-video'
 import Image from "next/image";
-import HeroImage from "@/public/images/hero_image.png";
+import HeroImage from "@/public/images/christmas-hero.png";
 import {useModal} from "@ebay/nice-modal-react";
 import UserInfoModal from "@/components/ui/WaitlistModal";
 import {useCallback} from "react";
 import NiceModal from '@ebay/nice-modal-react';
 
 
-export default function Hero() {
+export default function ChristmasHero() {
     const userModal = useModal(UserInfoModal);
 
     const handleNewUser = useCallback(() => {
@@ -44,7 +44,7 @@ export default function Hero() {
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 hero-image">
 
                     {/* Hero content */}
-                    <div className="pt-32 pb-12 md:pt-40 md:pb-20 hero-image">
+                    <div className="pt-32 pb-12">
 
                         <Image className="md:max-w-none transform hero-image" src={HeroImage} width={500} height="44"
                                alt="Element"/>
@@ -54,18 +54,17 @@ export default function Hero() {
                             {/* Hero image */}
 
                             <h1 className="text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4"
-                                data-aos="zoom-y-out">Create <span
-                                className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">reimagined</span> photos
-                                of friends with AI</h1>
+                                data-aos="zoom-y-out">Create reimagined <span
+                                className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-green-400">Christmas</span> photos
+                                with AI</h1>
                             <div className="max-w-3xl mx-auto">
                                 <p className="text-xl text-gray-600 mb-8" data-aos="zoom-y-out"
-                                   data-aos-delay="150">Upload your photos and watch "Bob as Shrek" or "Bob with a
-                                    mullet" come to life.</p>
+                                   data-aos-delay="150">Upload your photos and we'll generate a photo of you wearing your best ugly Christmas sweater!</p>
                                 <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center"
                                      data-aos="zoom-y-out" data-aos-delay="300">
                                     <div>
                                         <button className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0"
-                                           onClick={handleNewUser}>Join Waitlist</button>
+                                           onClick={handleNewUser}>Sign up</button>
                                     </div>
                                     {/*<div>*/}
                                     {/*    <a className="btn text-white bg-gray-900 hover:bg-gray-800 w-full sm:w-auto sm:ml-4"*/}
