@@ -65,6 +65,9 @@ export default function MobileMenu() {
         >
           <ul className="px-5 py-2">
             <li>
+              <Link href="/christmas" className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Christmas AI</Link>
+            </li>
+            <li>
               <Link href="/taylor_swift" className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Harry Potter AI</Link>
             </li>
             <li>
