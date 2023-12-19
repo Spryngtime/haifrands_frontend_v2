@@ -40,7 +40,7 @@ export default NiceModal.create(({ user }) => {
 
     const closeOnSuccess = () => {
         saveNewuser()
-        let secondsToGo = 5;
+        let secondsToGo = 3;
         console.log("Success!")
         setSuccessfullyLoggedIn(true);
         setTitle("Success!")
@@ -53,6 +53,7 @@ export default NiceModal.create(({ user }) => {
         setTimeout(() => {
             clearInterval(timer);
             modal.hide();
+            window.location.href = 'https://app.usephortal.com/onboarding-01'; // Redirects to the specified
         }, secondsToGo * 1000);
     };
 

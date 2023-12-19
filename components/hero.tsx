@@ -65,7 +65,7 @@ export default function Hero() {
                                      data-aos="zoom-y-out" data-aos-delay="300">
                                     <div>
                                         <button className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0"
-                                           onClick={handleNewUser}>Join Waitlist</button>
+                                           onClick={handleNewUser}>Sign up</button>
                                     </div>
                                     {/*<div>*/}
                                     {/*    <a className="btn text-white bg-gray-900 hover:bg-gray-800 w-full sm:w-auto sm:ml-4"*/}
