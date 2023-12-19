@@ -13,8 +13,8 @@ const inter = Inter({
 })
 
 export const metadata = {
-    title: 'Phortal - create AI generated photos',
-    description: 'Create AI generated photos of yourself and others!',
+    title: "Phortal",
+    description: 'Upload pictures of your face and generate AI images!',
 }
 
 export default function RootLayout({

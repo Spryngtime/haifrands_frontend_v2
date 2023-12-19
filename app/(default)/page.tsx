@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Home - Simple',
-  description: 'Page description',
+  title: "Phortal",
+  description: 'Upload pictures of your face and generate AI images!',
 }
 
 import Hero from '@/components/hero'
